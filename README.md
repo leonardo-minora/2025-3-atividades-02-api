@@ -16,21 +16,44 @@ Ao final desta atividade, o aluno será capaz de:
 
 Use este checklist para acompanhar seu progresso durante a implementação da API de tarefas.
 
-## ✅ Pré-requisitos e Configuração
+## ✅ Pré-requisitos e Configuração - Nosso checklist
 
 ### Verificação do Ambiente
-- [ ] Node.js (v18+) instalado e funcionando
-- [ ] npm instalado e funcionando
-- [ ] Git instalado e configurado
-- [ ] Editor de código (VS Code recomendado) configurado
-- [ ] Cliente REST (Postman/Insomnia/Thunder Client) instalado
+- [X] Node.js (v18+) instalado e funcionando
+- [X] npm instalado e funcionando / vou usar o yarn
+- [X] Git instalado e configurado
+- [X] Editor de código (VS Code recomendado) configurado
+- [X] Cliente REST (Postman/Insomnia/Thunder Client) instalado / vou usar o cliente rest de um plugin do vscode
 
 ### Configuração Inicial
-- [ ] Fork do repositório tutorial realizado
-- [ ] Repositório clonado localmente
+- [X] Fork do repositório tutorial realizado
+- [X] Repositório clonado localmente
 - [ ] NestJS CLI instalado globalmente (`npm install -g @nestjs/cli`)
-- [ ] Projeto NestJS criado (`nest new tasks-api`)
-- [ ] Dependências instaladas (TypeORM, SQLite, class-validator, etc.)
+  - `-g` significa global e que a lib instalada vira comando no terminal
+  - sempre que for instalar um comando novo, vou usar o npm ;-)
+- [X] Projeto NestJS criado (`nest new tasks-api`)
+  - é criado uma pasta do projeto nestjs igual ao nome fornecido acima no comando `./tasks-api`
+  - vou mover o conteúdo da pasta para a raiz deste repositório `.`
+    - excluir `./tasks-api/node_modules` , `./tasks-api/README.md` e `./tasks-api/yarn.lock`
+    - quem usa npm não terá esse arquivo `./tasks-api/yarn.lock`, será o `./tasks-api/package-lock.json`
+- [X] Dependências instaladas (TypeORM, SQLite, class-validator, etc.)
+
+
+Agora vamos testar!!!
+`yarn run start:dev`
+
+para ativar o menu de comandos do vscode, CTRL+SHIFT+P
+
+GET http://localhost:3000/
+
+top, funcionou!!!
+
+
+Depois fazer o commit :-P
+`git status`
+`git add `
+`git commit -m "criado e configurado o projeto de api com nestjs"`
+
 
 ## 🗂️ Estrutura do Projeto
 
