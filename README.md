@@ -16,7 +16,7 @@ Ao final desta atividade, o aluno será capaz de:
 
 Use este checklist para acompanhar seu progresso durante a implementação da API de tarefas.
 
-## ✅ Pré-requisitos e Configuração - Nosso checklist
+##Parte 1 - ✅ Pré-requisitos e Configuração - Nosso checklist
 
 ### Verificação do Ambiente
 - [X] Node.js (v18+) instalado e funcionando
@@ -55,74 +55,110 @@ Depois fazer o commit :-P
 `git commit -m "criado e configurado o projeto de api com nestjs"`
 
 
-## 🗂️ Estrutura do Projeto
+## Parte 2 - 🗂️ Estrutura do Projeto
+
+Vamos criar a rota tasks!!!
+Iniciar executando a api
+
+`yarn run start:dev`
+
+antes verificar se as libs estão instaladas e o status do git
+
+vamos adicionar as entidades e os dtos
 
 ### Criação de Diretórios
-- [ ] Diretório `src/tasks` criado
-- [ ] Diretório `src/tasks/dto` criado
-- [ ] Estrutura de pastas organizada conforme especificação
+- [X] Diretório `src/tasks` criado
+- [X] Diretório `src/tasks/dto` criado
+- [X] Estrutura de pastas organizada conforme especificação
 
 ### Arquivos Base
-- [ ] `app.module.ts` configurado com TypeORM
-- [ ] `main.ts` configurado com CORS e ValidationPipe
-- [ ] Configuração do banco SQLite implementada
+- [X] `app.module.ts` configurado com TypeORM
+- [X] `main.ts` configurado com CORS e ValidationPipe
+- [X] Configuração do banco SQLite implementada
 
 ## 📊 Implementação da Entity
 
+1. criei os arquivos
+2. copiei o entity
+3. olhei o terminal para ver se tinha erros
+4. copiar os dtos e verificar o terminal
+   
 ### Task Entity (src/tasks/task.entity.ts)
-- [ ] Classe `Task` criada com decorator `@Entity()`
-- [ ] Campo `id` com `@PrimaryGeneratedColumn()`
-- [ ] Campo `title` com `@Column()`
-- [ ] Campo `description` com `@Column()`
-- [ ] Campo `status` com enum `TaskStatus` e configuração adequada
-- [ ] Campos `createdAt` e `updatedAt` com decorators de timestamp
-- [ ] Enum `TaskStatus` definido corretamente (aberto, fazendo, finalizado)
+- [X] Classe `Task` criada com decorator `@Entity()`
+- [X] Campo `id` com `@PrimaryGeneratedColumn()`
+- [X] Campo `title` com `@Column()`
+- [X] Campo `description` com `@Column()`
+- [X] Campo `status` com enum `TaskStatus` e configuração adequada
+- [X] Campos `createdAt` e `updatedAt` com decorators de timestamp
+- [X] Enum `TaskStatus` definido corretamente (aberto, fazendo, finalizado)
 
 ## 📝 Implementação dos DTOs
 
 ### CreateTaskDto (src/tasks/dto/create-task.dto.ts)
-- [ ] Classe `CreateTaskDto` criada
-- [ ] Validação `@IsString()` e `@IsNotEmpty()` no campo `title`
-- [ ] Validação `@IsString()` e `@IsNotEmpty()` no campo `description`
-- [ ] Validação `@IsEnum()` e `@IsOptional()` no campo `status`
+- [X] Classe `CreateTaskDto` criada
+- [X] Validação `@IsString()` e `@IsNotEmpty()` no campo `title`
+- [X] Validação `@IsString()` e `@IsNotEmpty()` no campo `description`
+- [X] Validação `@IsEnum()` e `@IsOptional()` no campo `status`
 
 ### UpdateTaskDto (src/tasks/dto/update-task.dto.ts)
-- [ ] Classe `UpdateTaskDto` criada
-- [ ] Todos os campos opcionais com `@IsOptional()`
-- [ ] Validações adequadas mantidas para cada campo
+- [X] Classe `UpdateTaskDto` criada
+- [X] Todos os campos opcionais com `@IsOptional()`
+- [X] Validações adequadas mantidas para cada campo
+
+aqui os campos são todos opcionais porque pordemos atualizar apenas um dos campos.
 
 ## 🔧 Implementação do Service
+vamos pular o serviço por enquanto
+
+vamos copiar logo :-P
+compilando tudo mas ainda não aparece a rota.
 
 ### TasksService (src/tasks/tasks.service.ts)
-- [ ] Classe `TasksService` com decorator `@Injectable()`
-- [ ] Injeção do repositório com `@InjectRepository(Task)`
-- [ ] Método `findAll()` implementado
-- [ ] Método `findOne(id)` implementado com tratamento de erro 404
-- [ ] Método `create(createTaskDto)` implementado
-- [ ] Método `update(id, updateTaskDto)` implementado
-- [ ] Método `remove(id)` implementado
-- [ ] Tratamento adequado de erros em todos os métodos
+- [X] Classe `TasksService` com decorator `@Injectable()`
+- [X] Injeção do repositório com `@InjectRepository(Task)`
+- [X] Método `findAll()` implementado
+- [X] Método `findOne(id)` implementado com tratamento de erro 404
+- [X] Método `create(createTaskDto)` implementado
+- [X] Método `update(id, updateTaskDto)` implementado
+- [X] Método `remove(id)` implementado
+- [X] Tratamento adequado de erros em todos os métodos
 
 ## 🎮 Implementação do Controller
 
 ### TasksController (src/tasks/tasks.controller.ts)
-- [ ] Classe `TasksController` com decorator `@Controller('tasks')`
-- [ ] Injeção do service no construtor
-- [ ] Endpoint `GET /tasks` com decorator `@Get()`
-- [ ] Endpoint `GET /tasks/:id` com `@Get(':id')` e `ParseIntPipe`
-- [ ] Endpoint `POST /tasks` com `@Post()` e `@Body()`
-- [ ] Endpoint `PUT /tasks/:id` com `@Put(':id')` e validações
-- [ ] Endpoint `DELETE /tasks/:id` com `@Delete(':id')`
-- [ ] Status codes HTTP adequados configurados
+- [X] Classe `TasksController` com decorator `@Controller('tasks')`
+- [X] Injeção do service no construtor
+- [X] Endpoint `GET /tasks` com decorator `@Get()`
+- [X] Endpoint `GET /tasks/:id` com `@Get(':id')` e `ParseIntPipe`
+- [X] Endpoint `POST /tasks` com `@Post()` e `@Body()`
+- [X] Endpoint `PUT /tasks/:id` com `@Put(':id')` e validações
+- [X] Endpoint `DELETE /tasks/:id` com `@Delete(':id')`
+- [X] Status codes HTTP adequados configurados
 
 ## 📦 Configuração do Module
 
+vamos adicionar a rota agora
+primeiro, cria o módulo tasks
+ainda não aparece porque precisa apontar esse módulo em app.module
+
 ### TasksModule (src/tasks/tasks.module.ts)
-- [ ] Classe `TasksModule` com decorator `@Module()`
-- [ ] Importação do `TypeOrmModule.forFeature([Task])`
-- [ ] Controller adicionado ao array `controllers`
-- [ ] Service adicionado ao array `providers`
-- [ ] Módulo importado no `AppModule`
+- [X] Classe `TasksModule` com decorator `@Module()`
+- [X] Importação do `TypeOrmModule.forFeature([Task])`
+- [X] Controller adicionado ao array `controllers`
+- [X] Service adicionado ao array `providers`
+- [X] Módulo importado no `AppModule`
+
+vamos testar agora pelo cliente no vs code
+
+GET http://localhost:3000/tasks/
+
+funcionou :-D
+
+não vou por enquanto testar os outros métodos...
+vamos fazer o commit da parte 2 - rota e crud
+`git add .`
+`git commit -m ""`
+
 
 ## 🚀 Execução e Testes
 
